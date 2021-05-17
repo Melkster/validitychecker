@@ -1,7 +1,5 @@
 package ValidityChecker;
 
-import java.util.Arrays;
-
 public class ValidityChecker {
     public Iterable<ValidityCheck> checks;
 
@@ -20,6 +18,6 @@ public class ValidityChecker {
     }
 
     public static void main(String[] args) {
-        var vc = new ValidityChecker(Arrays.asList(new NotNull()));
+        System.out.println("ValidityChecker");
     }
 }

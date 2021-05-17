@@ -1,3 +1,5 @@
+package ValidityChecker;
+
 import java.util.Arrays;
 
 public class ValidityChecker {

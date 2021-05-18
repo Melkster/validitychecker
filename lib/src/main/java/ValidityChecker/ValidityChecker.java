@@ -7,14 +7,16 @@ public class ValidityChecker {
         this.checks = checks;
     }
 
-    // TODO: add logger
     public boolean validate(Object data) {
+        boolean result = true;
         for (ValidityCheck check : checks) {
             if (!check.validate(data)) {
-                return false;
+                Logger.getInstance()
+                        .log(String.format("Validity check '%s' for data '%s' failed ", check.getName(), data));
+                result = false;
             }
         }
-        return true;
+        return result;
     }
 
     public static void main(String[] args) {

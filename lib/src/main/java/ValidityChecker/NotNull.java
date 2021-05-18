@@ -1,7 +1,11 @@
 package ValidityChecker;
 
 public class NotNull implements ValidityCheck {
-    public boolean validate(Object data) {
+    public synchronized boolean validate(Object data) {
         return data != null;
+    }
+
+    public String getName() {
+        return "Not null";
     }
 }

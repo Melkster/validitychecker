@@ -3,7 +3,7 @@ package ValidityChecker;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-import java.util.Arrays;
+import java.util.List;
 
 public class ValidityCheckerTest {
     @Test
@@ -29,6 +29,7 @@ public class ValidityCheckerTest {
         assertFalse(vc.validate(""));
         assertFalse(vc.validate(new Object()));
         assertFalse(vc.validate("123 987"));
+        assertFalse(vc.validate("ABCDEF"));
 
         assertTrue(vc.validate("ABC123"));
         assertTrue(vc.validate("FGA 837"));
@@ -36,5 +37,37 @@ public class ValidityCheckerTest {
         assertTrue(vc.validate("ABC-123"));
         assertTrue(vc.validate("FGA-837"));
         assertTrue(vc.validate(" UUW-135  "));
+    }
+
+    @Test
+    public void testPINCheck() {
+        ValidityChecker vc = new ValidityChecker(new PINCheck());
+        assertFalse(vc.validate("12345"));
+        assertFalse(vc.validate(""));
+
+        assertTrue(vc.validate("19780202-2389"));
+        assertTrue(vc.validate("197802022389"));
+        assertTrue(vc.validate("19780202 2389"));
+        assertTrue(vc.validate(197802022389L));
+    }
+
+    @Test
+    public void testNotNullAndLicenseNumberCheck() {
+        ValidityChecker vc = new ValidityChecker(List.of(new NotNullCheck(), new LicenseNumberCheck()));
+        assertFalse(vc.validate("foo"));
+        assertFalse(vc.validate(""));
+        assertFalse(vc.validate(null));
+
+        assertTrue(vc.validate("ABC123"));
+    }
+
+    @Test
+    public void testNotNullAndPINCheck() {
+        ValidityChecker vc = new ValidityChecker(List.of(new NotNullCheck(), new PINCheck()));
+        assertFalse(vc.validate("foo"));
+        assertFalse(vc.validate(""));
+        assertFalse(vc.validate(null));
+
+        assertTrue(vc.validate("19780202-2389"));
     }
 }

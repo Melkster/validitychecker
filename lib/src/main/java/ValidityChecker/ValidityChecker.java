@@ -17,8 +17,7 @@ public class ValidityChecker {
         boolean result = true;
         for (ValidityCheck check : checks) {
             if (!check.validate(data)) {
-                Logger.getInstance()
-                        .log(String.format("Validity check '%s' for data '%s' failed ", check.getName(), data));
+                Logger.getInstance().log(String.format("Validity check '%s' for data '%s' failed ", check, data));
                 result = false;
             }
         }
@@ -27,6 +26,5 @@ public class ValidityChecker {
 
     public static void main(String[] args) {
         System.out.println("ValidityChecker");
-        new ValidityChecker(new NotNullCheck()).validate('f');
     }
 }

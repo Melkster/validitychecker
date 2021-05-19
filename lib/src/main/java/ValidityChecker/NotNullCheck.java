@@ -5,7 +5,8 @@ public class NotNullCheck implements ValidityCheck {
         return data != null;
     }
 
-    public String getName() {
-        return "Not null";
+    @Override
+    public String toString() {
+        return "Not null check";
     }
 }

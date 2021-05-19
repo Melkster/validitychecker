@@ -25,7 +25,8 @@ public class LicenseNumberCheck implements ValidityCheck {
         return true;
     }
 
-    public String getName() {
-        return "License number";
+    @Override
+    public String toString() {
+        return "License number check";
     }
 }

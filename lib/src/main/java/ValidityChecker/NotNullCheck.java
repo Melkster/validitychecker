@@ -1,6 +1,6 @@
 package ValidityChecker;
 
-public class NotNull implements ValidityCheck {
+public class NotNullCheck implements ValidityCheck {
     public synchronized boolean validate(Object data) {
         return data != null;
     }

@@ -1,10 +1,16 @@
 package ValidityChecker;
 
+import java.util.List;
+
 public class ValidityChecker {
     public Iterable<ValidityCheck> checks;
 
     public ValidityChecker(Iterable<ValidityCheck> checks) {
         this.checks = checks;
+    }
+
+    public ValidityChecker(ValidityCheck check) {
+        this(List.of(check));
     }
 
     public boolean validate(Object data) {
@@ -21,5 +27,6 @@ public class ValidityChecker {
 
     public static void main(String[] args) {
         System.out.println("ValidityChecker");
+        new ValidityChecker(new NotNullCheck()).validate('f');
     }
 }

@@ -1,6 +1,16 @@
 package ValidityChecker;
 
+/**
+ * {@link ValidityCheck} for checking if data a standard Swedish car license
+ * number.
+ */
 public class LicenseNumberCheck implements ValidityCheck {
+    /**
+     * Checks if the data is a standard Swedish car license number.
+     *
+     * @param data The data to validate
+     * @return Returns true if data is a license number, otherwise false
+     */
     public synchronized boolean validate(Object data) {
         if (!(data instanceof String)) {
             return false;

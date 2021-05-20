@@ -3,7 +3,14 @@ package ValidityChecker;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A validity checker that uses a given amount of {@link ValidityCheck}s to
+ * validate a given input object.
+ */
 public class ValidityChecker {
+    /**
+     * The list of validity checks
+     */
     List<ValidityCheck> checks;
 
     public ValidityChecker(List<ValidityCheck> checks) {
@@ -14,6 +21,15 @@ public class ValidityChecker {
         this(List.of(check));
     }
 
+    /**
+     * Validates the input data with each {@link ValidityCheck}.
+     *
+     * Any failed validity check is logged using {@link Logger}.
+     *
+     * @param data The data to validate
+     * @return Returns true if data passed the validation of each
+     *         {@link ValidityCheck}, otherwise false
+     */
     public boolean validate(Object data) {
         boolean result = true;
         for (ValidityCheck check : checks) {
@@ -25,6 +41,13 @@ public class ValidityChecker {
         return result;
     }
 
+    /**
+     * Adds the validity check to the validity checker.
+     *
+     * @param check The validity check to add
+     * @return Returns true if validity check was successfully added, otherwise
+     *         false
+     */
     public boolean addCheck(ValidityCheck check) {
         return checks.add(check);
     }

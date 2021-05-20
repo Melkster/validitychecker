@@ -9,7 +9,7 @@ public class ValidityCheckerTest {
     @Test
     public void testLogger() {
         Logger logger = Logger.getInstance();
-        logger.log("bar");
+        logger.log("foo");
     }
 
     @Test
@@ -76,7 +76,7 @@ public class ValidityCheckerTest {
     }
 
     @Test
-    public void testNotNullAndPINCheck() {
+    public void testNotNullAndPINChecker() {
         ValidityChecker vc = new ValidityChecker(List.of(new NotNullCheck(), new PINCheck()));
         assertFalse(vc.validate("foo"));
         assertFalse(vc.validate(""));

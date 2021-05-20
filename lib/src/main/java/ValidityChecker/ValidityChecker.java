@@ -1,12 +1,13 @@
 package ValidityChecker;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ValidityChecker {
-    public Iterable<ValidityCheck> checks;
+    List<ValidityCheck> checks;
 
-    public ValidityChecker(Iterable<ValidityCheck> checks) {
-        this.checks = checks;
+    public ValidityChecker(List<ValidityCheck> checks) {
+        this.checks = new ArrayList<ValidityCheck>(checks);
     }
 
     public ValidityChecker(ValidityCheck check) {
@@ -22,6 +23,10 @@ public class ValidityChecker {
             }
         }
         return result;
+    }
+
+    public boolean addCheck(ValidityCheck check) {
+        return checks.add(check);
     }
 
     public static void main(String[] args) {

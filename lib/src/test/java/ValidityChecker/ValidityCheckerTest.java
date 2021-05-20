@@ -13,6 +13,20 @@ public class ValidityCheckerTest {
     }
 
     @Test
+    public void testAddCheck() {
+        NotNullCheck nnCheck = new NotNullCheck();
+        ValidityChecker vc = new ValidityChecker(nnCheck);
+        assertEquals(1, vc.checks.size());
+        assertTrue(vc.checks.contains(nnCheck));
+
+        var lnCheck = new LicenseNumberCheck();
+        assertTrue(vc.addCheck(lnCheck));
+        assertEquals(2, vc.checks.size());
+        assertTrue(vc.checks.contains(nnCheck));
+        assertTrue(vc.checks.contains(lnCheck));
+    }
+
+    @Test
     public void testNotNull() {
         ValidityChecker vc = new ValidityChecker(new NotNullCheck());
         assertFalse(vc.validate(null));

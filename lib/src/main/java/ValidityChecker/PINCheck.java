@@ -14,31 +14,39 @@ public class PINCheck implements ValidityCheck {
         if (data instanceof String) {
             String substring = (String) data;
             substring = substring.replaceAll("\\s", "").replaceAll("-", "");
-            if (substring.length() != PINLength) {
+
+            if (substring.length() != PINLength || !containsOnlylDigits(substring)) {
                 return false;
             }
-            for (char c : substring.toCharArray()) {
-                if (!Character.isDigit(c)) {
-                    return false;
-                }
-            }
-            int lastNum = getIntFromStringIndex(substring, PINLength - 1);
+
+            int lastDigit = getIntFromStringIndex(substring, PINLength - 1);
             substring = substring.substring(2, PINLength - 1);
-            int sum = 0;
-            for (int i = 0; i < substring.toCharArray().length; i++) {
-                int num = getIntFromStringIndex(substring, i);
-                int multiplier = (i + 1) % 2 + 1; // alternates between 2 and 1
-
-                sum += sumOfDigits(num * multiplier);
-            }
-
-            if ((10 - sum % 10) % 10 == lastNum) {
-                return true;
-            }
+            return substringIsValidPIN(substring, lastDigit);
         } else if (data instanceof Long) {
             return validate(String.valueOf(data));
+        } else {
+            return false;
         }
-        return false;
+    }
+
+    private boolean substringIsValidPIN(String substring, int lastDigit) {
+        int checksum = 0;
+        for (int i = 0; i < substring.toCharArray().length; i++) {
+            int num = getIntFromStringIndex(substring, i);
+            int multiplier = (i + 1) % 2 + 1; // alternates between 2 and 1
+            checksum += sumOfDigits(num * multiplier);
+        }
+
+        return ((10 - checksum % 10) % 10 == lastDigit);
+    }
+
+    private boolean containsOnlylDigits(String str) {
+        for (char c : str.toCharArray()) {
+            if (!Character.isDigit(c)) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private int getIntFromStringIndex(String str, int index) {

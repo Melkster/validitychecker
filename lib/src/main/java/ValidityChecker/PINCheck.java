@@ -12,6 +12,13 @@ public class PINCheck implements ValidityCheck {
      */
     private int PINLength = 12;
 
+    /**
+     * Checks if the data is a personal identification number.
+     *
+     * @param data The data to validate
+     * @return Returns true if data is a personal identification number, otherwise
+     *         false
+     */
     public synchronized boolean validate(Long data) {
         return validate(String.valueOf(data));
     }

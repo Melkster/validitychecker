@@ -51,8 +51,4 @@ public class ValidityChecker {
     public boolean addCheck(ValidityCheck check) {
         return checks.add(check);
     }
-
-    public static void main(String[] args) {
-        System.out.println("ValidityChecker");
-    }
 }

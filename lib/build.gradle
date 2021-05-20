@@ -29,7 +29,7 @@ dependencies {
 }
 
 application {
-    mainClass = "ValidityChecker.ValidityChecker"
+    mainClass = "ValidityChecker.Main"
 }
 
 clean {

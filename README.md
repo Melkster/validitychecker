@@ -1,10 +1,9 @@
 # Validity Checker
 
-To run [Main.java](./lib/src/main/java/melkster/validitychecker/Main.java), which contains some sample code, use `gradle run`.
+To run [Main.java](./lib/src/main/java/melkster/validitychecker/Main.java), which contains some sample code, use `./gradlew run`.
 
-To run tests, use `gradle test`.
+To run tests, use `./gradlew test`.
 
 ## Dependencies
 
-- [Java 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
-- [Gradle](https://gradle.org/)
+- [Java JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)

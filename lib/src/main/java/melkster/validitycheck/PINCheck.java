@@ -1,4 +1,4 @@
-package ValidityChecker;
+package melkster.validitycheck;
 
 /**
  * {@link ValidityCheck} for checking if data a personal identification number

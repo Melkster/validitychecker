@@ -1,6 +1,10 @@
-package ValidityChecker;
+package melkster.validitychecker;
 
 import java.util.List;
+
+import melkster.validitycheck.LicenseNumberCheck;
+import melkster.validitycheck.NotNullCheck;
+import melkster.validitycheck.PINCheck;
 
 /**
  * Main file for illustrating {@link ValidityChecker}'s behaviour

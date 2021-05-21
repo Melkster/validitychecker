@@ -1,9 +1,9 @@
-package ValidityChecker;
+package melkster.validitycheck;
 
 /**
  * Validity check interface.
  */
-interface ValidityCheck {
+public interface ValidityCheck {
     /**
      * Validates the input data.
      *

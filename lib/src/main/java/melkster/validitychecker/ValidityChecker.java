@@ -1,7 +1,9 @@
-package ValidityChecker;
+package melkster.validitychecker;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import melkster.validitycheck.ValidityCheck;
 
 /**
  * A validity checker that uses a given amount of {@link ValidityCheck}s to
@@ -50,5 +52,14 @@ public class ValidityChecker {
      */
     public boolean addCheck(ValidityCheck check) {
         return checks.add(check);
+    }
+
+    /**
+     * Counts the number of validity checks in the validity checker.
+     *
+     * @return Returns the number of validity checks
+     */
+    public int countChecks() {
+        return checks.size();
     }
 }

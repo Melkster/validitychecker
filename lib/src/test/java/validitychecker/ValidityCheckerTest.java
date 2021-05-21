@@ -1,9 +1,14 @@
-package ValidityChecker;
-
-import org.junit.Test;
 import static org.junit.Assert.*;
 
 import java.util.List;
+
+import org.junit.Test;
+
+import melkster.validitycheck.LicenseNumberCheck;
+import melkster.validitycheck.NotNullCheck;
+import melkster.validitycheck.PINCheck;
+import melkster.validitychecker.Logger;
+import melkster.validitychecker.ValidityChecker;
 
 public class ValidityCheckerTest {
     @Test
@@ -16,14 +21,11 @@ public class ValidityCheckerTest {
     public void testAddCheck() {
         NotNullCheck nnCheck = new NotNullCheck();
         ValidityChecker vc = new ValidityChecker(nnCheck);
-        assertEquals(1, vc.checks.size());
-        assertTrue(vc.checks.contains(nnCheck));
+        assertEquals(1, vc.countChecks());
 
         var lnCheck = new LicenseNumberCheck();
         assertTrue(vc.addCheck(lnCheck));
-        assertEquals(2, vc.checks.size());
-        assertTrue(vc.checks.contains(nnCheck));
-        assertTrue(vc.checks.contains(lnCheck));
+        assertEquals(2, vc.countChecks());
     }
 
     @Test

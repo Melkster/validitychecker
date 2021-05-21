@@ -29,7 +29,7 @@ dependencies {
 }
 
 application {
-    mainClass = "ValidityChecker.Main"
+    mainClass = "melkster.validitychecker.Main"
 }
 
 clean {

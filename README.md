@@ -1,6 +1,6 @@
 # Validity Checker
 
-To run [Main.java](./lib/src/main/java/ValidityChecker/Main.java), which contains some sample code, use `gradle run`.
+To run [Main.java](./lib/src/main/java/melkster/validitychecker/Main.java), which contains some sample code, use `gradle run`.
 
 To run tests, use `gradle test`.
 
